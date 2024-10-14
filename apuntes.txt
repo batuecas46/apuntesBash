@@ -231,4 +231,100 @@ cp dir3/f*.txt dir04   nos llevaria tdos al dir04
 
 con un ls dir04 comprobamos que se hizo la copia 
 
+########################################   con    mv ###########################
 
+para movilizar arcchivos usamos  el comando mv
+
+es como cp  pero cambia en que cuando mv lo lleva y no deja copía
+
+si estamos en dir3
+
+dir touch f2 creamos un nuevo archivo
+
+podemos moverlo 
+
+dir3$ mv f2/tmp  pero ya no estaria en /dir3/ si no /tmp/
+
+no respeta origen destino solamente "destino"
+
+con mv podemos cambiar formato con mv  
+
+ejemplo  di3$ mv f3.txt /tmp/f3.dat y asi lo cambairiamos de formato
+
+y qyedaria asi dir3$ mv f3.txt /tmp/f3.dat
+              dir3$ ls -l /tmp/f*
+
+ y vemos los resultados  que se agrego el f3. con el formato 
+
+
+f3.dat 
+
+
+para mover todos los archivos con una ruta absoluta ariamos 
+
+
+nos dirijimos a dir4$   f*/home/julio/dir3
+
+
+
+-----------  para borrar con   rm 
+
+rm f2.txt  seria asi 
+
+rm -i f*.txt   con la i me de la opcion de preguntar si reañmente 
+
+y nos da la opcion  de (s/n) y elegimos 
+
+
+
+rm -r  borra ficheros y tambien directorios 
+
+
+para borrar varios podemos aser asi
+
+dir3$ rm /tmp/f*  elimina todos los archivos con f del /tmp
+
+
+rmdir  es para vaciar los ficheros del directorio
+
+ejemplo rmdir dir3/*
+
+borrraria todo del dir3* 
+
+ahora que esta vacio podemos eliminarlo con rmdir dir3$
+
+rmdir dir$3 se eliminaria por que esta vacia 
+
+
+rm -r    dir y ficheros   completos  es muy potente borra todo 
+
+
+
+ 
+----------------------------------  cat  para poder ver los archivos
+
+
+ejemplo man ls > ejemplo.txt    creamos un archivo  y depues los 
+
+visialisamos con
+
+ cat ejeplo.txt 
+
+nos mostraria el contenido 
+
+
+de man ls  creado anteriormente con man ls > ejemplo.txt 
+
+  con cat podemos numerarlo el contenido 
+
+con cat -n ejemplo.txt nos eneumeras las lineas 
+
+
+
+tambien podriamos ver cat /etc/passwd
+
+cat /etc/group   y nos mostaria su contenido 
+
+
+
+______________________________________________________________________
