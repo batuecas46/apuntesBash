@@ -1,0 +1,234 @@
+
+
+pwd =en quedirectorio estoy 
+ls = donde estamos en que parte del dir y listar 
+
+ls -l listar los dir
+
+cd  =cambiar directorio
+
+cd me lleva a home siempre
+
+cd /home/julio/curso ruta absoluta empiezo de raiz /home/julio/curso
+cd curso/ seria relativaa por que podes ir directamente del padre a hijo
+
+cd .. vuelvo 1 paso atras 
+
+cd . con un solo punto 
+
+
+man  es para ayuda de cualquier comando 
+
+nos podemos mover con flechas arriba y abajo o con f o p 
+
+para buscar una palabra eje la letra copy /copy  y apara salir de 
+
+man tendriamos  solamente apretamos la letra q 
+
+
+
+ls - l lstado completo de dir permisos ficheros peso
+ls -a nos muestra dir y archivos ocultos
+
+ls -al ocultos listas ocultos y ficheros 
+
+ls -alh ocultos listados y con la h con mustra en kilobytes
+
+ls -l /tmp nos listas todo dentro /tmp con ruta relativa
+ls -t ordena por fecha 
+ls ltr cual es mas antiguo
+
+
+#########  metacaracteres##########################
+
+
+
+Metacaracter	Descripción	Ejemplo		
+.	Coincide con cualquier carácter (excepto un salto de línea)	.at coincide con "cat", "hat", "bat", etc.		
+^	Indica el inicio de una línea	^The coincide solo con líneas que comienzan con "The"		
+$	Indica el final de una línea	world$ coincide solo con líneas que terminan con "world"		
+*	Coincide con cero o más ocurrencias del carácter anterior	ab*c coincide con "ac", "abc", "abbbc", etc.		
++	Coincide con una o más ocurrenrencies del carácter anterior	ab+c coincide con "abc", "abbc", pero no con "ac"		
+?	Coincide con cero o una ocurrencia del carácter anterior	colou?r coincide con "color" y "colour"		
+{n}	Coincide con exactamente n ocurrencias del carácter anterior	a{3}b coincide con "aaab"		
+{n,}	Coincide con n o más ocurrencias del carácter anterior	a{2,}b coincide con "aab", "aaab", "aaaab", etc.		
+{n,m}	Coincide con al menos n y como máximo m ocurrencias del carácter anterior	a{2,4}b coincide con "aab", "aaab", "aaaab"		
+[]	Define un conjunto de caracteres	[abc] coincide con "a", "b" o "c"		
+- (dentro de [])	Define un rango de caracteres	[a-z] coincide con cualquier letra minúscula		
+^ (dentro de [])	Niega un conjunto de caracteres	[^abc] coincide con cualquier carácter excepto "a", "b" o "c"		
+\	Escapa un metacaracter o representa caracteres especiales	\d (dígito), \s (espacio en blanco), \w (palabra)		
+
+
+
+
+Metacaracter	Descripción	Ejemplo
+.	Coincide con cualquier carácter (excepto un salto de línea)	.at coincide con "cat", "hat", "bat", etc.
+^	Indica el inicio de una línea	^The coincide solo con líneas que comienzan con "The"
+$	Indica el final de una línea	world$ coincide solo con líneas que terminan con "world"
+*	Coincide con cero o más ocurrencias del carácter anterior	ab*c coincide con "ac", "abc", "abbbc", etc.
++	Coincide con una o más ocurrenrencies del carácter anterior	ab+c coincide con "abc", "abbc", pero no con "ac"
+?	Coincide con cero o una ocurrencia del carácter anterior	colou?r coincide con "color" y "colour"
+{n}	Coincide con exactamente n ocurrencias del carácter anterior	a{3}b coincide con "aaab"
+{n,}	Coincide con n o más ocurrencias del carácter anterior	a{2,}b coincide con "aab", "aaab", "aaaab", etc.
+{n,m}	Coincide con al menos n y como máximo m ocurrencias del carácter anterior	a{2,4}b coincide con "aab", "aaab", "aaaab"
+[]	Define un conjunto de caracteres	[abc] coincide con "a", "b" o "c"
+- (dentro de [])	Define un rango de caracteres	[a-z] coincide con cualquier letra minúscula
+^ (dentro de [])	Niega un conjunto de caracteres	[^abc] coincide con cualquier carácter excepto "a", "b" o "c"
+\	Escapa un metacaracter o representa caracteres especiales	\d (dígito), \s (espacio en blanco), \w (palabra)
+
+Exportar a Hojas de cálculo
+Ejemplos de Expresiones Regulares:
+
+Buscar todas las direcciones de correo electrónico: [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}
+Buscar todas las fechas en formato DD/MM/AAAA: \d{2}/\d{2}/\d{4}
+Buscar todas las palabras que comienzan con una vocal: ^[aeiouAEIOU]\w+
+Recuerda:
+
+Los metacaracteres son sensibles al contexto: Su significado puede variar dependiendo del lenguaje de programación o herramienta que estés utilizando.
+Las expresiones regulares pueden ser complejas: A medida que te familiarices con los metacaracteres, podrás crear patrones de búsqueda más sofisticados.
+############################################################################################################################################################################################################################################################################
+
+
+¡Absolutamente! Bash es un shell muy potente que hace un amplio uso de metacaracteres para realizar operaciones de búsqueda, expansión de nombres de archivos y otras tareas. Aquí te presento un listado detallado de los metacaracteres más comunes en Bash y sus funciones:
+
+Metacaracteres en Bash
+Metacaracter	Descripción	Ejemplo
+*	Coincide con cero o más caracteres	ls *.txt (lista todos los archivos que terminan en .txt)
+?	Coincide con cualquier carácter único	ls f?le.txt (lista archivos como file.txt, fole.txt, etc.)
+[]	Coincide con cualquier carácter dentro de los corchetes	ls [abc].txt (lista archivos como a.txt, b.txt, c.txt)
+- (dentro de [])	Rango de caracteres	ls [a-z].txt (lista archivos que comienzan con una letra minúscula)
+^ (dentro de [])	Negación de un conjunto	ls [^abc].txt (lista archivos que no comienzan con a, b o c)
+{lista,lista2,...}	Expansión de nombres	ls file{1,2,3}.txt (lista file1.txt, file2.txt, file3.txt)
+,	Separador de elementos en una expansión	echo {a,b}{x,y} (imprime ax, ay, bx, by)
+;	Separador de comandos en una línea	ls; cd Documents (ejecuta ls y luego cambia de directorio)
+**	**	Tubería (conecta la salida de un comando a la entrada del siguiente)
+>	Redirección de salida estándar	ls > list.txt (redirecciona la salida de ls a un archivo)
+<	Redirección de entrada estándar	sort < numbers.txt (ordena el contenido de numbers.txt)
+2>	Redirección de salida de error estándar	command 2> error.log (redirecciona los mensajes de error a un archivo)
+&	Ejecución en segundo plano	sleep 10 & (ejecuta sleep 10 en segundo plano)
+$	Expansión de variables	echo $HOME (imprime el valor de la variable HOME)
+(comillas invertidas)	Ejecución de comandos y sustitución de comandos	ls $(find . -name "*.txt") (lista todos los archivos .txt en el directorio actual y sus subdirectorios)
+**	Escapa un metacaracter	ls \*.txt (lista literalmente los archivos que comienzan con *.txt)
+
+
+###################_________metacaracteres--------------###################
+
+
+
+ejemplos con mectaracters 
+
+
+
+
+ls  b*  buscaria tdo con b 
+ls  B* no funciona 
+
+
+ls b* buscaria todo lo que empieza por b 
+ls p* buscaria todo lo que empieza con p 
+ls *b todo lo que termina con  b 
+ls * tdod lo que termina con p
+
+ ls   * a      lado isquierdo todo lo que termina 
+ls     a*     lado derecho todo lo que empieza 
+
+ ls  *ab*  trairia todo loq que tenga ab
+
+
+"""################################  mkdir mv rmdir 
+mkdir creamos carpetas 
+
+ /home/julio/carpeta creariamos 1 carpeta ruta absoluta 
+mkdir -v creamos una carpeta y nos avisa la creacion 
+
+mkdir -p creamos 1 carpeta y subacrpeta
+
+ejemplo de carpeta padre y carpeta hijos
+
+mkdir -p dir04/prueba
+con el parametro   despues de mkdir -p /carpeta/subcarpeta
+
+
+
+touch  hace 2 cosas si no existe lo crea 
+
+touch  y si existe le crea la fecha de modificacion
+
+
+echo es para tamnien para crear archivos 
+
+seria echo hola mundo   f1.txt 
+
+
+
+para copiar seria con el  cp 
+
+
+cp  f1.txt f2.txt asi copiariamos 
+
+
+con cp podemos poner ruta absoluta tambien cp f1.txt /tmp/f2.txt y arias una copia en 
+
+directorio tmp  lo veriamos con un ls -l/tmp/f* y nos daria todos lso que empeiesen con f 
+
+tambien se epuese hacer copiar de una ruta relativa hasta una ruta absoluta y traerla 
+
+siempre estamos en :~/dir03$ cp f2.txt f3.txt  seria asi copiame este f2.txt de /tmp/ y creame otro archivo aca 
+
+
+
+algo asi seria la ruta creada con cp 
+
+julio@debian:~/dir3$ ls -l
+total 8
+-rw-r--r-- 1 julio julio  0 oct 14 14:18 f1
+-rw-r--r-- 1 julio julio 19 oct 14 14:27 f1.txt
+-rw-r--r-- 1 julio julio 19 oct 14 14:32 f2.txt
+julio@debian:~/dir3$ cp f1.txt /tmp/f2.txt
+
+julio@debian:~/dir3$  ls -l /tmp/f*
+-rw-r--r-- 1 julio julio 19 oct 14 14:36 /tmp/f2.tx
+t
+julio@debian:~/dir3$ cp /tmp/f2.txt f3.txt
+julio@debian:~/dir3$ ls
+
+f1  f1.txt  f2.txt  f3.txt
+julio@debian:~/dir3$ ls -l
+total 12
+-rw-r--r-- 1 julio julio  0 oct 14 14:18 f1
+-rw-r--r-- 1 julio julio 19 oct 14 14:27 f1.txt
+-rw-r--r-- 1 julio julio 19 oct 14 14:32 f2.txt
+-rw-r--r-- 1 julio julio 19 oct 14 14:37 f3.txt
+julio@debian:~/dir3$ 
+
+con cp podriamos poner  cp f1.txt f3.txt copiariamos pero sustiriamos todo 
+hay 1 opcion cp -i y nos advierte loq ue vamos hacer 
+
+
+julio@debian:~/dir3$ cp -i f1.txt f3.txt 
+cp: ¿sobreescribir 'f3.txt'? (s/n) 
+
+tambien podemos hacer copiar todos juntos 
+
+asi y mandarlos a otra ubicacion por ejemplo
+
+julio@debian:~/dir3$ cp f*.txt /tmp/
+
+
+para copiar directorios sin errores 
+
+
+cp -r dir03 dir06 un ejemplos seria asi 
+
+
+con cp dir3/f*.txt dir04  nos copiarar todos lso ficheros con f*.txt serian todos 
+
+
+"cp f1.txt f2.txt f3.txt diro4 "
+
+cp dir3/f*.txt dir04   nos llevaria tdos al dir04
+
+
+con un ls dir04 comprobamos que se hizo la copia 
+
+
