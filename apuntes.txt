@@ -1,0 +1,644 @@
+
+
+  pwd =en quedirectorio estoy 
+  ls = donde estamos en que parte del dir y listar 
+
+  ls -l listar los dir
+
+  cd  =cambiar directorio
+
+  cd me lleva a home siempre
+
+  cd /home/julio/curso ruta absoluta empiezo de raiz /home/julio/curso
+  cd curso/ seria relativaa por que podes ir directamente del padre a hijo
+
+  cd .. vuelvo 1 paso atras 
+
+  cd . con un solo punto nos mustra donde estamos actual 
+
+
+                      man  es para ayuda de cualquier comando 
+
+  nos podemos mover con flechas arriba y abajo o con f o p 
+
+  para buscar una palabra eje la letra copy /copy  y apara salir de 
+
+  man tendriamos  solamente apretamos la letra q 
+
+
+
+  ls - l lstado completo de dir permisos ficheros peso
+  ls -a nos muestra dir y archivos ocultos
+
+  ls -al ocultos listas ocultos y ficheros 
+
+  ls -alh ocultos listados y con la h con mustra en kilobytes
+
+  ls -l /tmp nos listas todo dentro /tmp con ruta relativa
+  ls -t ordena por fecha 
+  ls ltr cual es mas antiguo
+
+
+                                          #########  metacaracteres##########################
+
+
+
+                         Metacaracter	                                 Descripción	            Ejemplo		
+  .	Coincide con cualquier carácter (excepto un salto de línea)	.at coincide con "cat", "hat", "bat", etc.		
+  ^	Indica el inicio de una línea	^The coincide solo con líneas que comienzan con "The"		
+  $	Indica el final de una línea	world$ coincide solo con líneas que terminan con "world"		
+  *	Coincide con cero o más ocurrencias del carácter anterior	ab*c coincide con "ac", "abc", "abbbc", etc.		
+  +	Coincide con una o más ocurrenrencies del carácter anterior	ab+c coincide con "abc", "abbc", pero no con "ac"		
+  ?	Coincide con cero o una ocurrencia del carácter anterior	colou?r coincide con "color" y "colour"		
+  {n}	Coincide con exactamente n ocurrencias del carácter anterior	a{3}b coincide con "aaab"		
+  {n,}	Coincide con n o más ocurrencias del carácter anterior	a{2,}b coincide con "aab", "aaab", "aaaab", etc.		
+  {n,m}	Coincide con al menos n y como máximo m ocurrencias del carácter anterior	a{2,4}b coincide con "aab", "aaab", "aaaab"		
+  []	Define un conjunto de caracteres	[abc] coincide con "a", "b" o "c"		
+  - (dentro de [])	Define un rango de caracteres	[a-z] coincide con cualquier letra minúscula		
+  ^ (dentro de [])	Niega un conjunto de caracteres	[^abc] coincide con cualquier carácter excepto "a", "b" o "c"		
+  \	Escapa un metacaracter o representa caracteres especiales	\d (dígito), \s (espacio en blanco), \w (palabra)		
+
+
+ 
+                                            Ejemplos de Expresiones Regulares:
+
+  Buscar todas las direcciones de correo electrónico: [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}
+  Buscar todas las fechas en formato DD/MM/AAAA: \d{2}/\d{2}/\d{4}
+  Buscar todas las palabras que comienzan con una vocal: ^[aeiouAEIOU]\w+
+  Recuerda:
+
+Los metacaracteres son sensibles al contexto: Su significado puede variar dependiendo del lenguaje de programación
+ o herramienta que estés utilizando.
+Las expresiones regulares pueden ser complejas: A medida que te familiarices con los metacaracteres
+, podrás crear patrones de búsqueda más sofisticados.
+
+
+
+
+  ¡Absolutamente! Bash es un shell muy potente que hace un amplio uso de metacaracteres
+  para realizar operaciones de búsqueda, expansión de nombres de archivos y otras tareas.
+  Aquí te presento un listado detallado de los metacaracteres más comunes en Bash y sus funciones:
+
+  Metacaracteres en Bash
+
+  *	Coincide con cero o más caracteres	ls *.txt (lista todos los archivos que terminan en .txt)
+  ?	Coincide con cualquier carácter único	ls f?le.txt (lista archivos como file.txt, fole.txt, etc.)
+  []	Coincide con cualquier carácter dentro de los corchetes	ls [abc].txt (lista archivos como a.txt, b.txt, c.txt)
+  - (dentro de [])	Rango de caracteres	ls [a-z].txt (lista archivos que comienzan con una letra minúscula)
+  ^ (dentro de [])	Negación de un conjunto	ls [^abc].txt (lista archivos que no comienzan con a, b o c)
+  {lista,lista2,...}	Expansión de nombres	ls file{1,2,3}.txt (lista file1.txt, file2.txt, file3.txt)
+  ,	Separador de elementos en una expansión	echo {a,b}{x,y} (imprime ax, ay, bx, by)
+  ;	Separador de comandos en una línea	ls; cd Documents (ejecuta ls y luego cambia de directorio)
+  **	**	Tubería (conecta la salida de un comando a la entrada del siguiente)
+  >	Redirección de salida estándar	ls > list.txt (redirecciona la salida de ls a un archivo)
+  <	Redirección de entrada estándar	sort < numbers.txt (ordena el contenido de numbers.txt)
+  2>	Redirección de salida de error estándar	command 2> error.log (redirecciona los mensajes de error a un archivo)
+  &	Ejecución en segundo plano	sleep 10 & (ejecuta sleep 10 en segundo plano)
+  $	Expansión de variables	echo $HOME (imprime el valor de la variable HOME)
+  (comillas invertidas)	Ejecución de comandos y sustitución de comandos	ls $(find . -name "*.txt")
+  (lista todos los archivos .txt en el directorio actual y sus subdirectorios)
+  **	Escapa un metacaracter	ls \*.txt (lista literalmente los archivos que comienzan con *.txt)
+
+
+                                    ###################_________metacaracteres--------------###################
+
+
+
+                                                   ejemplos con mectaracters 
+
+
+
+
+  ls  b*  buscaria tdo con b 
+  ls  B* no funciona 
+
+
+  ls b* buscaria todo lo que empieza por b 
+  ls p* buscaria todo lo que empieza con p 
+  ls *b todo lo que termina con  b 
+  ls * tdod lo que termina con p
+
+  ls   * a      lado isquierdo todo lo que termina 
+  ls     a*     lado derecho todo lo que empieza 
+
+  ls  *ab*  trairia todo loq que tenga ab
+
+
+                             -----------------  mkdir mv rmdir ----------------------------
+  mkdir creamos carpetas 
+
+  /home/julio/carpeta creariamos 1 carpeta ruta absoluta 
+  mkdir -v creamos una carpeta y nos avisa la creacion 
+
+  mkdir -p creamos 1 carpeta y subacrpeta
+
+  ejemplo de carpeta padre y carpeta hijos
+
+  mkdir -p dir04/prueba
+  con el parametro   despues de mkdir -p /carpeta/subcarpeta
+
+
+
+  touch  hace 2 cosas si no existe lo crea 
+
+  touch  y si existe le crea la fecha de modificacion
+
+
+  echo es para tamnien para crear archivos 
+
+  seria echo hola mundo   f1.txt 
+
+
+
+  para copiar seria con el  cp 
+
+
+  cp  f1.txt f2.txt asi copiariamos 
+
+
+  con cp podemos poner ruta absoluta tambien cp f1.txt /tmp/f2.txt y arias una copia en 
+
+  directorio tmp  lo veriamos con un ls -l/tmp/f* y nos daria todos lso que empeiesen con f 
+
+  tambien se epuese hacer copiar de una ruta relativa hasta una ruta absoluta y traerla 
+
+  siempre estamos en :~/dir03$ cp f2.txt f3.txt  seria asi copiame este f2.txt de /tmp/ y creame otro archivo aca 
+
+
+
+  algo asi seria la ruta creada con cp 
+
+  julio@debian:~/dir3$ ls -l
+  total 8
+  -rw-r--r-- 1 julio julio  0 oct 14 14:18 f1
+  -rw-r--r-- 1 julio julio 19 oct 14 14:27 f1.txt
+  -rw-r--r-- 1 julio julio 19 oct 14 14:32 f2.txt
+  julio@debian:~/dir3$ cp f1.txt /tmp/f2.txt
+
+  julio@debian:~/dir3$  ls -l /tmp/f*
+  -rw-r--r-- 1 julio julio 19 oct 14 14:36 /tmp/f2.txt
+  julio@debian:~/dir3$ cp /tmp/f2.txt f3.txt
+  julio@debian:~/dir3$ ls
+
+  f1  f1.txt  f2.txt  f3.txt
+  julio@debian:~/dir3$ ls -l
+  total 12
+  -rw-r--r-- 1 julio julio  0 oct 14 14:18 f1
+  -rw-r--r-- 1 julio julio 19 oct 14 14:27 f1.txt
+  -rw-r--r-- 1 julio julio 19 oct 14 14:32 f2.txt
+  -rw-r--r-- 1 julio julio 19 oct 14 14:37 f3.txt
+  julio@debian:~/dir3$ 
+
+  con cp podriamos poner  cp f1.txt f3.txt copiariamos pero sustiriamos todo 
+  hay 1 opcion cp -i y nos advierte loq ue vamos hacer 
+
+
+  julio@debian:~/dir3$ cp -i f1.txt f3.txt 
+  cp: ¿sobreescribir 'f3.txt'? (s/n) 
+
+  tambien podemos hacer copiar todos juntos 
+
+  asi y mandarlos a otra ubicacion por ejemplo
+
+  julio@debian:~/dir3$ cp f*.txt /tmp/
+
+
+  para copiar directorios sin errores 
+
+
+  cp -r dir03 dir06 un ejemplos seria asi 
+
+
+  con cp dir3/f*.txt dir04  nos copiarar todos lso ficheros con f*.txt serian todos 
+
+
+  "cp f1.txt f2.txt f3.txt diro4 "
+
+  cp dir3/f*.txt dir04   nos llevaria tdos al dir04
+
+
+  con un ls dir04 comprobamos que se hizo la copia 
+
+       ---------------------------------------    mv -----------------------------------------
+
+
+  para movilizar arcchivos usamos  el comando mv
+
+  es como cp  pero cambia en que cuando mv lo lleva y no deja copía
+
+  si estamos en dir3
+
+  dir touch f2 creamos un nuevo archivo
+
+  podemos moverlo 
+
+  dir3$ mv f2/tmp  pero ya no estaria en /dir3/ si no /tmp/
+
+  no respeta origen destino solamente "destino"
+
+  con mv podemos cambiar formato con mv  
+
+  ejemplo  di3$ mv f3.txt /tmp/f3.dat y asi lo cambairiamos de formato
+
+  y qyedaria asi dir3$ mv f3.txt /tmp/f3.dat
+              dir3$ ls -l /tmp/f*
+
+  y vemos los resultados  que se agrego el f3. con el formato 
+
+
+  f3.dat 
+
+
+ para mover todos los archivos con una ruta absoluta ariamos 
+
+
+  nos dirijimos a dir4$   f*/home/julio/dir3
+
+
+
+               -----------  para borrar con   rm ------------------------------------
+
+  rm f2.txt  seria asi 
+
+  rm -i f*.txt   con la i me de la opcion de preguntar si reañmente 
+
+  y nos da la opcion  de (s/n) y elegimos 
+
+
+
+  rm -r  borra ficheros y tambien directorios 
+
+
+  para borrar varios podemos aser asi
+
+  dir3$ rm /tmp/f*  elimina todos los archivos con f del /tmp
+
+
+  rmdir  es para vaciar los ficheros del directorio
+
+  ejemplo rmdir dir3/*
+
+  borrraria todo del dir3* 
+
+  ahora que esta vacio podemos eliminarlo con rmdir dir3$
+
+  rmdir dir$3 se eliminaria por que esta vacia 
+
+
+  rm -r    dir y ficheros   completos  es muy potente borra todo 
+
+
+
+ 
+                   --------  cat  para poder ver los archivos------------------
+
+
+  ejemplo man ls > ejemplo.txt    creamos un archivo  y depues los 
+
+  visialisamos con
+
+  cat ejeplo.txt 
+
+  nos mostraria el contenido 
+
+
+  de man ls  creado anteriormente con man ls > ejemplo.txt 
+
+  con cat podemos numerarlo el contenido 
+
+  con cat -n ejemplo.txt nos eneumeras las lineas 
+
+
+
+  tambien podriamos ver cat /etc/passwd
+
+  cat /etc/group   y nos mostaria su contenido 
+
+
+
+                                                   ------------------head----------
+
+
+                              Comandos Básicos de Linux: Una Explicación Simple
+  head
+  Función: Muestra las primeras líneas de un archivo.
+  Uso: head [número de líneas] [nombre del archivo]
+  Ejemplo: head 5 archivo.txt mostrará las primeras 5 líneas de archivo.txt.
+  ¿Cómo funciona?: Imagina un libro. head es como si solo leyeras las primeras páginas.
+   Te permite ver el inicio de un archivo sin tener que abrirlo completo.
+
+
+                 -----------------------------tail--------------------------------------
+
+
+  Función: Muestra las últimas líneas de un archivo.
+  Uso: tail [número de líneas] [nombre del archivo]
+  Ejemplo: tail 10 archivo.log mostrará las últimas 10 líneas del archivo de registro.
+  ¿Cómo funciona?: Es lo opuesto a head. Si head mira al principio, tail mira al final.
+   Es útil para ver las últimas entradas en un log, por ejemplo
+
+  tail -f podemos esperar el resultado como sifuera un log
+
+
+                --------------------------   tree--------------------------------------------
+  Función: Muestra una representación en forma de árbol de la estructura de directorios.
+  Uso: tree [directorio]
+  Ejemplo: tree documentos mostrará una estructura en forma de árbol de todos los archivos
+   y subdirectorios dentro de la carpeta "documentos".
+
+  ¿Cómo funciona?: Imagina un árbol genealógico, pero para archivos y carpetas.
+   tree te da una vista rápida y organizada de cómo están organizados tus archivos.
+
+
+  Imaginemos que tienes un archivo de log llamado error.log.
+  Para ver las últimas 20 líneas donde se registraron errores, usarías:
+
+  Bash
+  tail -n 20 error.log
+  Usa el código con precaución.
+
+  Si quieres ver la estructura de un proyecto en una carpeta llamada "proyecto", usarías:
+
+  Bash
+  tree proyecto
+  Usa el código con precaución.
+
+  En resumen:
+
+  head y tail te permiten ver partes específicas de un archivo (principio y final).
+  tree te da una vista jerárquica de la estructura de tus archivos.
+
+
+                                                     ----------enlaces    hard    y simbolicos 
+
+
+
+  hard  se ln  prueba.txt prueba_enlace.txt  si aria un enlace hard
+
+  igual que el original los dos tendrian el mismo inodo 
+
+
+
+  con enlaces symbolicos son acceso directo de un archivo 
+
+  ln -s prueba.txt  prueba_enlace.txt seria  ... 
+
+  si se elimina el archivo ariginal donde apuntava  se muere el
+
+  el enlace  
+
+                                                         ----------du       df -------
+ 
+  son para mira el espacio cuanto tieens o cuanto quedaria 
+
+  ejemplos  
+
+ du k carpeta 
+
+  4 carpetao1 
+
+ du -b carpeta
+
+  4096 carpeta 
+
+  du -m /usr/bin
+  115120 /usr/bin  serian los megas de usr/bin 
+
+
+  con df  seria nos espacio ocupado y libre en el sitema 
+
+
+  df  nos mostraria espacio disponibles 
+
+
+  df -h nos muestra espacio reales en gigas
+
+  df -T  nos mostraria los archivos y extensiones instaladas
+
+
+                                        ------ modo caracter y modo grafico -------------
+
+  ctrl   alt   f3   para cambiar de sesiones entrames a modo 
+
+  caracter salimos del modo grafico   para volver 
+
+
+  ctrl   alt f2  volvimos al grafico 
+
+
+
+  podemos ver las secciones iniciadas con el comando who  
+
+
+  julio    tty2         2024-10-16 17:21 (tty2)
+  root    tty3         2024-10-16 18:04
+  julio    tty4         2024-10-16 18:05
+
+
+                        -----------------------------------
+                              comando internos o externos 
+
+  help   nos muestra la shell bash los comandos internos 
+
+ 
+  GNU bash, versión 5.2.15(1)-release (x86_64-pc-linux-gnu)
+  Estas órdenes de shell están definidas internamente.  Teclee `help' para
+  ver esta lista.
+  Teclee `help nombre' para saber más sobre la función `nombre'.
+  Utilice `info bash' para saber más sobre la shell en general.
+  Utilice `man -k' o `info' para saber más sobre las órdenes que no están en
+  esta lista.
+
+  Un asterisco (*) junto a un nombre significa que la orden está desactivada.
+
+  id_trabajo [&]                          history [-c] [-d despl] [n] o histor>
+  (( expresión ))                         if ÓRDENES; then ÓRDENES; [ elif ÓRD>
+  . fichero [argumentos]                  jobs [-lnprs] [idtrabajo ...] o jobs>
+  :                                       kill [-s id_señal | -n num_señal | ->
+  [ arg... ]                              let arg [arg ...]
+  [[ expresión ]]                         local [opción] nombre[=valor] ...
+  alias [-p] [nombre[=valor] ... ]        logout [n]
+  bg [id_trabajo ...]                     mapfile [-d delim] [-n cuenta] [-O o>
+  bind [-lpsvPSVX] [-m comb_teclas] [-f>  popd [-n] [+N | -N]
+  break [n]                               printf [-v var] formato [argumentos]
+  builtin [orden-interna-shell [arg ...>  pushd [-n] [+N | -N | dir
+  caller [expresión]                      pwd [-LP]
+  case PALABRA in [PATRÓN [| PATRÓN]...>  read [-ers] [-a matriz] [-d delim] [>
+  cd [-L|[-P [-e]]] [dir]                 readarray [-d delim] [-n cuenta] [-O>
+  command [-pVv] orden [arg ...]          readonly [-aAf] [nombre[=valor] ...]>
+  compgen [-abcdefgjksuv] [-o opción]  >  return [n]
+  complete [-abcdefgjksuv] [-pr] [-DEI]>  select NOMBRE [in PALABRAS ... ;] do>
+  compopt [-o|+o opción] [-DEI] [nombre>  set [-abefhkmnptuvxBCEHPT] [-o nombr>
+  continue [n]                            shift [n]
+  coproc [NOMBRE] orden [redirecciones>   shopt [-pqsu] [-o] [nombre_opción..>
+  declare [-aAfFgiIlnrtux] [nombre[=val>  source fichero [argumentos]
+  dirs [-clpv] [+N] [-N]                  suspend [-f]
+  disown [-h] [-ar] [idtrabajo ... | pi>  test [expresión]
+  echo [-neE] [arg ...]                   time [-p] tubería
+  enable [-a] [-dnps] [-f fichero] [nom>  times
+  eval [arg ...]                          trap [-lp] [[arg] id_señal ...]
+  exec [-cl] [-a nombre] [orden [argume>  true
+  exit [n]                                type [-afptP] nombre [nombre ...]
+  export [-fn] [nombre[=valor] ...] ó e>  typeset [-aAfFgiIlnrtux] nombre[=val>
+  false                                   ulimit [-SHabcdefiklmnpqrstuvxPRT] [>
+  fc [-e nombre_e] [-lnr] [primero] [úl>  umask [-p] [-S] [modo]
+  fg [id_trabajo]                         unalias [-a] nombre [nombre ...]
+  for NOMBRE [in PALABRAS ... ] ; do ÓR>  unset [-f] [-v] [-n] [nombre ...]
+  for (( exp1; exp2; exp3 )); do ÓRDENE>  until ÓRDENES; do ÓRDENES-2; done
+  function nombre { ÓRDENES ; } o nombr>  variables - Nombres y significados d>
+  getopts cadena_opciones nombre [arg .>  wait [-fn] [-p var] [id ...]
+  hash [-lr] [-p ruta] [-dt] [nombre ..>  while ÓRDENES; do ÓRDENES-2; done
+  help [-dms] [patrón ...]                { ÓRDENES ; }
+  julio@debian:~$ 
+
+  type cd 
+
+  cd es una orden interna del shell  
+
+
+  type mkdir 
+
+  mkdir /usr/bin/mkdir
+
+
+  la diferncia internos  funcionan mas rapidos que los externos 
+
+  con   el comando   which  nos da info de donde se encuentra tal 
+
+  y  con whereis nos mostaria el paths  	
+
+   ejemplode uno o otro          
+
+
+  julio@debian:~$ which pwd 
+  /usr/bin/pwd
+  julio@debian:~$ which ls
+  /usr/bin/ls
+  julio@debian:~$ which firefox
+  /usr/bin/firefox
+  julio@debian:~$ which java
+  julio@debian:~$ whereis pwd
+  pwd: /usr/bin/pwd /usr/share/man/man1/pwd.1.gz
+  julio@debian:~$ whereis ls
+  ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+  julio@debian:~$ whereis firefox
+  firefox: /usr/bin/firefox
+  julio@debian:~$ whereis java
+  java: /usr/share/java
+  julio@debian:~$ 
+
+  ------------------  alias    time  cal  ncal .-----
+
+
+  los alias son para agregar nuestros alias para los comandos
+  personalizar los comando a nuestro gusto  
+  ejemplos de alias 
+
+  julio@debian:~$ du -sm /home/julio
+  1435	/home/julio
+  julio@debian:~$ alias tam='du -sm /home/julio'
+  julio@debian:~$ tam
+  1435	/home/julio
+  julio@debian:~$ 
+ 
+  .....time....
+
+  nos muestra la raelidad de lo que se tarda con cada movimientos de nosotros y 
+
+  como trabaja cada praceso cada comando 
+
+
+   ulio@debian:~$ time 
+
+  real	0m0,000s
+  user	0m0,000s
+  sys	0m0,000s
+  julio@debian:~$ time ls
+  apuuntes.txt  dir04         Escritorio     Imágenes     Público
+  carpeta01     Documentos    f1             informating  Vídeos
+  carpeta02     ejemplo.txt   fichero1.txt   Música       vimvarios
+  Descargas     ejemplo_.txt  fichero1_.txt  Plantillas
+
+  real	0m0,003s
+  user	0m0,002s
+  sys	0m0,001s
+
+  nos mustra lo que tarda recursos
+
+  time  du -a /  con -a bsuacaria tdos los archivos y directorios 
+  y  / buscame con todo el directorio  
+
+  real	0m12,293s
+  user	0m1,077s
+  sys	0m6,370s
+
+  y a naliza todo el sistema operativo 
+
+
+  ................   cal ...........
+    
+  si no lo tenemos podemos instalarlo con
+  apt-get install bsdmainutils
+
+  julio@debian:~$ cal -m 5 1966  ponemos la fecha requerida 
+     Mayo 1966        
+  do lu ma mi ju vi sá  
+  1  2  3  4  5  6  7  
+  8  9 10 11 12 13 14  
+  15 16 17 18 19 20 21  
+  22 23 24 25 26 27 28  
+  29 30 31              
+                      
+  julio@debian:~$ ncal
+    Octubre 2024      
+  do     6 13 20 27   
+  lu     7 14 21 28   
+  ma  1  8 15 22 29   
+  mi  2  9 16 23 30   
+  ju  3 10 17 24 31   
+  vi  4 11 18 25      
+  sá  5 12 19 26      
+  julio@debian:~$ ncal -M nos muestra asi por dias 
+    Octubre 2024      
+  lu     7 14 21 28   
+  ma  1  8 15 22 29   
+  mi  2  9 16 23 30   
+  ju  3 10 17 24 31   
+  vi  4 11 18 25      
+  sá  5 12 19 26      
+  do  6 13 20 27      
+  julio@debian:~$ 
+
+ ............  date     ....  uptime ....
+  date nos mostraria el dia  
+
+  julio@debian:~$ date
+  jue 17 oct 2024 08:38:44 -03
+ 
+
+  comodines de date 
+
+  date +'%d' 
+  dia eje 01
+  date +'%m'
+  mes jemplo 04
+  date +'y'
+  año 24 
+
+  date +'hoy es %d %B' con la B nos muestra el mes en texto
+
+  julio@debian:~$ date +'hoy es %d %B' 
+  hoy es 17 octubre
+
+  ..... uptime ....
+  nos mostraria cuanto tiempo estamos conectados 
+  uptime cuantos conectados y procesos 
+
+  julio@debian:~$ uptime
+  09:14:08 up 6 min,  1 user,  load average: 0,95, 0,82, 0,39
+  julio@debian:~$ uptime -p
+  up 8 minutes
+  julio@debian:~$ uptime -s
+  2024-10-17 09:07:25
+  julio@debian:~$ 
+
