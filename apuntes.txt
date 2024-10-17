@@ -435,4 +435,210 @@ Las expresiones regulares pueden ser complejas: A medida que te familiarices con
   julio    tty4         2024-10-16 18:05
 
 
------------------------------------
+                        -----------------------------------
+                              comando internos o externos 
+
+  help   nos muestra la shell bash los comandos internos 
+
+ 
+  GNU bash, versión 5.2.15(1)-release (x86_64-pc-linux-gnu)
+  Estas órdenes de shell están definidas internamente.  Teclee `help' para
+  ver esta lista.
+  Teclee `help nombre' para saber más sobre la función `nombre'.
+  Utilice `info bash' para saber más sobre la shell en general.
+  Utilice `man -k' o `info' para saber más sobre las órdenes que no están en
+  esta lista.
+
+  Un asterisco (*) junto a un nombre significa que la orden está desactivada.
+
+  id_trabajo [&]                          history [-c] [-d despl] [n] o histor>
+  (( expresión ))                         if ÓRDENES; then ÓRDENES; [ elif ÓRD>
+  . fichero [argumentos]                  jobs [-lnprs] [idtrabajo ...] o jobs>
+  :                                       kill [-s id_señal | -n num_señal | ->
+  [ arg... ]                              let arg [arg ...]
+  [[ expresión ]]                         local [opción] nombre[=valor] ...
+  alias [-p] [nombre[=valor] ... ]        logout [n]
+  bg [id_trabajo ...]                     mapfile [-d delim] [-n cuenta] [-O o>
+  bind [-lpsvPSVX] [-m comb_teclas] [-f>  popd [-n] [+N | -N]
+  break [n]                               printf [-v var] formato [argumentos]
+  builtin [orden-interna-shell [arg ...>  pushd [-n] [+N | -N | dir
+  caller [expresión]                      pwd [-LP]
+  case PALABRA in [PATRÓN [| PATRÓN]...>  read [-ers] [-a matriz] [-d delim] [>
+  cd [-L|[-P [-e]]] [dir]                 readarray [-d delim] [-n cuenta] [-O>
+  command [-pVv] orden [arg ...]          readonly [-aAf] [nombre[=valor] ...]>
+  compgen [-abcdefgjksuv] [-o opción]  >  return [n]
+  complete [-abcdefgjksuv] [-pr] [-DEI]>  select NOMBRE [in PALABRAS ... ;] do>
+  compopt [-o|+o opción] [-DEI] [nombre>  set [-abefhkmnptuvxBCEHPT] [-o nombr>
+  continue [n]                            shift [n]
+  coproc [NOMBRE] orden [redirecciones>   shopt [-pqsu] [-o] [nombre_opción..>
+  declare [-aAfFgiIlnrtux] [nombre[=val>  source fichero [argumentos]
+  dirs [-clpv] [+N] [-N]                  suspend [-f]
+  disown [-h] [-ar] [idtrabajo ... | pi>  test [expresión]
+  echo [-neE] [arg ...]                   time [-p] tubería
+  enable [-a] [-dnps] [-f fichero] [nom>  times
+  eval [arg ...]                          trap [-lp] [[arg] id_señal ...]
+  exec [-cl] [-a nombre] [orden [argume>  true
+  exit [n]                                type [-afptP] nombre [nombre ...]
+  export [-fn] [nombre[=valor] ...] ó e>  typeset [-aAfFgiIlnrtux] nombre[=val>
+  false                                   ulimit [-SHabcdefiklmnpqrstuvxPRT] [>
+  fc [-e nombre_e] [-lnr] [primero] [úl>  umask [-p] [-S] [modo]
+  fg [id_trabajo]                         unalias [-a] nombre [nombre ...]
+  for NOMBRE [in PALABRAS ... ] ; do ÓR>  unset [-f] [-v] [-n] [nombre ...]
+  for (( exp1; exp2; exp3 )); do ÓRDENE>  until ÓRDENES; do ÓRDENES-2; done
+  function nombre { ÓRDENES ; } o nombr>  variables - Nombres y significados d>
+  getopts cadena_opciones nombre [arg .>  wait [-fn] [-p var] [id ...]
+  hash [-lr] [-p ruta] [-dt] [nombre ..>  while ÓRDENES; do ÓRDENES-2; done
+  help [-dms] [patrón ...]                { ÓRDENES ; }
+  julio@debian:~$ 
+
+  type cd 
+
+  cd es una orden interna del shell  
+
+
+  type mkdir 
+
+  mkdir /usr/bin/mkdir
+
+
+  la diferncia internos  funcionan mas rapidos que los externos 
+
+  con   el comando   which  nos da info de donde se encuentra tal 
+
+  y  con whereis nos mostaria el paths  	
+
+   ejemplode uno o otro          
+
+
+  julio@debian:~$ which pwd 
+  /usr/bin/pwd
+  julio@debian:~$ which ls
+  /usr/bin/ls
+  julio@debian:~$ which firefox
+  /usr/bin/firefox
+  julio@debian:~$ which java
+  julio@debian:~$ whereis pwd
+  pwd: /usr/bin/pwd /usr/share/man/man1/pwd.1.gz
+  julio@debian:~$ whereis ls
+  ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+  julio@debian:~$ whereis firefox
+  firefox: /usr/bin/firefox
+  julio@debian:~$ whereis java
+  java: /usr/share/java
+  julio@debian:~$ 
+
+  ------------------  alias    time  cal  ncal .-----
+
+
+  los alias son para agregar nuestros alias para los comandos
+  personalizar los comando a nuestro gusto  
+  ejemplos de alias 
+
+  julio@debian:~$ du -sm /home/julio
+  1435	/home/julio
+  julio@debian:~$ alias tam='du -sm /home/julio'
+  julio@debian:~$ tam
+  1435	/home/julio
+  julio@debian:~$ 
+ 
+  .....time....
+
+  nos muestra la raelidad de lo que se tarda con cada movimientos de nosotros y 
+
+  como trabaja cada praceso cada comando 
+
+
+   ulio@debian:~$ time 
+
+  real	0m0,000s
+  user	0m0,000s
+  sys	0m0,000s
+  julio@debian:~$ time ls
+  apuuntes.txt  dir04         Escritorio     Imágenes     Público
+  carpeta01     Documentos    f1             informating  Vídeos
+  carpeta02     ejemplo.txt   fichero1.txt   Música       vimvarios
+  Descargas     ejemplo_.txt  fichero1_.txt  Plantillas
+
+  real	0m0,003s
+  user	0m0,002s
+  sys	0m0,001s
+
+  nos mustra lo que tarda recursos
+
+  time  du -a /  con -a bsuacaria tdos los archivos y directorios 
+  y  / buscame con todo el directorio  
+
+  real	0m12,293s
+  user	0m1,077s
+  sys	0m6,370s
+
+  y a naliza todo el sistema operativo 
+
+
+  ................   cal ...........
+    
+  si no lo tenemos podemos instalarlo con
+  apt-get install bsdmainutils
+
+  julio@debian:~$ cal -m 5 1966  ponemos la fecha requerida 
+     Mayo 1966        
+  do lu ma mi ju vi sá  
+  1  2  3  4  5  6  7  
+  8  9 10 11 12 13 14  
+  15 16 17 18 19 20 21  
+  22 23 24 25 26 27 28  
+  29 30 31              
+                      
+  julio@debian:~$ ncal
+    Octubre 2024      
+  do     6 13 20 27   
+  lu     7 14 21 28   
+  ma  1  8 15 22 29   
+  mi  2  9 16 23 30   
+  ju  3 10 17 24 31   
+  vi  4 11 18 25      
+  sá  5 12 19 26      
+  julio@debian:~$ ncal -M nos muestra asi por dias 
+    Octubre 2024      
+  lu     7 14 21 28   
+  ma  1  8 15 22 29   
+  mi  2  9 16 23 30   
+  ju  3 10 17 24 31   
+  vi  4 11 18 25      
+  sá  5 12 19 26      
+  do  6 13 20 27      
+  julio@debian:~$ 
+
+ ............  date     ....  uptime ....
+  date nos mostraria el dia  
+
+  julio@debian:~$ date
+  jue 17 oct 2024 08:38:44 -03
+ 
+
+  comodines de date 
+
+  date +'%d' 
+  dia eje 01
+  date +'%m'
+  mes jemplo 04
+  date +'y'
+  año 24 
+
+  date +'hoy es %d %B' con la B nos muestra el mes en texto
+
+  julio@debian:~$ date +'hoy es %d %B' 
+  hoy es 17 octubre
+
+  ..... uptime ....
+  nos mostraria cuanto tiempo estamos conectados 
+  uptime cuantos conectados y procesos 
+
+  julio@debian:~$ uptime
+  09:14:08 up 6 min,  1 user,  load average: 0,95, 0,82, 0,39
+  julio@debian:~$ uptime -p
+  up 8 minutes
+  julio@debian:~$ uptime -s
+  2024-10-17 09:07:25
+  julio@debian:~$ 
+
