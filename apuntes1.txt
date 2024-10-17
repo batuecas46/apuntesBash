@@ -1,0 +1,354 @@
+		 ........nueva hoja de apuntes .........
+
+                     ---redireccionamiento-----
+ 
+
+  ¡Absolutamente! Vamos a profundizar en el tema de la entrada y salida en Linux, un sistema operativo donde estos conceptos son fundamentales y ofrecen una gran flexibilidad.
+
+  Entrada y Salida en Linux: Un Análisis Profundo
+  Los Tres Flujos Estándar
+  En Linux, cada programa al ejecutarse, automáticamente tiene asociados tres flujos estándar:
+
+  stdin (0): Entrada estándar, por defecto conectada al teclado. Es donde el programa espera recibir datos.
+  stdout (1): Salida estándar, por defecto conectada a la pantalla. Aquí se envían los resultados normales del programa.
+  stderr (2): Salida estándar de errores, también por defecto conectada a la pantalla, pero se utiliza para mostrar mensajes de error o advertencias.
+  Redirección de Flujos
+  Una de las grandes ventajas de Linux es la capacidad de redirigir estos flujos, permitiendo un control preciso sobre la entrada y salida de los programas.
+
+  Redirección de la entrada:
+  <: Redirige la entrada estándar desde un archivo. Por ejemplo, cat < archivo.txt lee el contenido de archivo.txt y lo muestra en pantalla.
+  Redirección de la salida:
+  >: Redirige la salida estándar a un archivo, sobreescribiéndolo. ls > listado.txt guarda el listado de archivos en listado.txt.
+  >>: Redirige la salida estándar a un archivo, añadiendo el contenido al final. echo "Nueva línea" >> listado.txt agrega una línea al archivo.
+  Redirección de errores:
+  2>: Redirige la salida de errores a un archivo. comando 2> errores.log guarda los errores en errores.log.
+  Combinación de redirecciones:
+  2>&1: Redirige la salida de errores a la salida estándar. comando 2>&1 envía tanto la salida normal como los errores a la misma ubicación.
+  Tuberías (Pipes)
+  Las tuberías permiten conectar la salida de un programa a la entrada de otro, creando una cadena de comandos. Por ejemplo:
+
+  Bash
+  ls | grep "txt" | wc -l
+  Usa el código con precaución.
+ 
+  Este comando lista los archivos, filtra aquellos que terminan en ".txt" y cuenta cuántos hay.
+
+  Dispositivos Especiales
+  Además de los archivos, Linux trata a muchos dispositivos como archivos especiales. Por ejemplo:
+
+  /dev/null: Un dispositivo donde cualquier dato escrito es descartado.
+  /dev/zero: Un dispositivo que siempre proporciona bytes nulos (ceros).
+  Programación de Entrada/Salida
+  En la programación, la entrada y salida se manejan a través de funciones específicas proporcionadas por el lenguaje de programación o la biblioteca utilizada. Por ejemplo, en C se utilizan funciones como read() y write() para leer y escribir datos de archivos y dispositivos.  
+
+  Ejemplos Prácticos
+  Crear un archivo con el contenido de otro:
+  Bash
+  cp archivo1.txt archivo2.txt
+  Usa el código con precaución.
+
+  Contar las líneas de un archivo:
+  Bash
+  wc -l archivo.txt
+  Usa el código con precaución.
+
+  Buscar una cadena en un archivo y mostrar la línea:
+  Bash
+  grep "patrón" archivo.txt
+  Usa el código con precaución.
+
+  Redirigir la salida de un programa a un archivo y mostrar los errores en pantalla:
+  Bash
+  programa 1> salida.log 2> &1
+  Usa el código con precaución.
+
+  Conclusión
+  La entrada y salida en Linux son conceptos fundamentales que brindan una gran flexibilidad para trabajar con datos y automatizar tareas. Comprender cómo funcionan los flujos estándar, la redirección y las tuberías es esencial para cualquier usuario de Linux, desde el principiante hasta el usuario avanzado. 
+
+
+  ejemplo s basicos 
+
+  julio@debian:~$ echo  nos da salida por teclado 
+
+  julio@debian:~$ echo hola   salida 
+  hola
+  julio@debian:~$ echo hola > f1.txt redireccionamos salida asi archivo
+  julio@debian:~$ cat f1.txt 
+  hola
+  julio@debian:~$ echo adios > f1.txt 
+  julio@debian:~$ cat f1.txt 
+  adios
+  como vemos con el > agregamos archivos facilmente pero tambien hay 
+  que tener cuidado si tenemos el mismo nombre lo sobreescribe 
+
+  julio@debian:~$ echo  hola >> f1.txt 
+
+  con >> le agregamos texto al archivo 
+  julio@debian:~$ date >> f1.txt
+  julio@debian:~$ cat f1.txt 
+  adios
+  hola
+  jue 17 oct 2024 09:59:29 -03
+  julio@debian:~$ 
+
+
+  
+---------  Redireccionamento  aujero negro  2>
+
+  cambiamos el orden de entrada con tr  <     ejemplo
+
+  julio@debian:~/informating$ echo  esto es una prueba > doc.txt
+  julio@debian:~/informating$ cat doc.txt 
+  esto es una prueba
+  julio@debian:~/informating$ tr e x doc.txt 
+  tr: operando extra «doc.txt»
+  Pruebe 'tr --help' para más información.
+  julio@debian:~/informating$ tr e x < doc.txt #cambia sentido 
+  xsto xs una pruxba
+  julio@debian:~/informating$ echo aqui hay menos pruebas >> doc.txt 
+  julio@debian:~/informating$ tr e x < doc.txt #cambia sentido 
+  xsto xs una pruxba
+  aqui hay mxnos pruxbas
+  julio@debian:~/informating$ cat doc.txt 
+  esto es una prueba
+  aqui hay menos pruebas
+  julio@debian:~/informating$ tr e x < doc.txt #cambia sentido 
+  xsto xs una pruxba
+  aqui hay mxnos pruxbas
+  julio@debian:~/informating$ echo  este dia pense >>  doc.txt
+  julio@debian:~/informating$ cat doc.txt 
+  esto es una prueba
+  aqui hay menos pruebas
+  este dia pense
+  julio@debian:~/informating$ tr e w < doc.txt #cambia las e  por la w
+  wsto ws una pruwba
+  aqui hay mwnos pruwbas
+  wstw dia pwnsw
+  julio@debian:~/informating$ 
+
+ 
+
+
+   --mas ejemplos con tr 
+
+  Eliminar caracteres: tr -d 'aeiou' < doc.txt elimina todas las vocales del archivo.
+
+  Convertir a mayúsculas: tr '[:lower:]' '[:upper:]' < doc.txt convierte todo el texto a mayúsculas.
+
+  Cambiar el orden de caracteres: tr 'ab' 'ba' < doc.txt intercambia las letras "a" y "b"
+.
+  ¿Qué más puedes hacer con tr?
+
+  Combinar con otros comandos: Puedes encadenar tr con otros comandos para realizar
+ 
+  transformaciones más complejas. Por ejemplo, cat doc.txt | tr 'a-z' 'A-Z' | grep 'X'
+ 
+  busca la letra "X" (en mayúscula) en el archivo después de convertir todo a mayúsculas.
+
+  Utilizar conjuntos de caracteres: Puedes definir conjuntos de caracteres usando
+   corchetes []. Por ejemplo, tr '[aeiou]' 'X' reemplaza todas las vocales por la letra "X".
+  Complementos adicionales: tr tiene muchas opciones avanzadas que te permiten realizar 
+  transformaciones más sofisticadas. Consulta la página de manual de tr (ejecuta man tr) para obtener más información.
+
+
+
+            ............................
+
+  wc -l << final 
+
+  una
+  dos
+  tres
+  final
+  4
+   
+  diferencias entre  1 <  o 2  << primero lo enlista 
+  y despues del end hace los cambios de a p 
+
+   julio@debian:~/informating$ tr a p << end
+  > saludos
+  > despedido
+  > palabra
+  > end
+   spludos
+   despedido
+  pplpbrp
+  julio@debian:~/informating$ 
+ 
+  redirenciones de salidas de  errores   
+  0)input
+  1) ouput 
+  2)error
+   
+
+  julio@debian:~/informating$ tr a p << end
+  > saludos
+  > despedido
+  > palabra
+  > end
+  spludos
+  despedido
+  pplpbrp
+
+  julio@debian:~/informating$ cat documento50
+  cat: documento50: No existe el fichero o el directorio
+
+  julio@debian:~/informating$ cat documento50 2> error.txt
+  julio@debian:~/informating$ cat error.txt 
+  cat: documento50: No existe el fichero o el directorio
+
+  julio@debian:~/informating$  cat /etc/passwd 1> usuarios.txt
+  julio@debian:~/informating$ cat usuarios
+  cat: usuarios: No existe el fichero o el directorio
+  julio@debian:~/informating$ cat usuarios.txt 
+  root:x:0:0:root:/root:/bin/bash
+  daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+  bin:x:2:2:bin:/bin:/usr/sbin/nologin
+  sys:x:3:3:sys:/dev:/usr/sbin/nologin
+  sync:x:4:65534:sync:/bin:/bin/sync
+  games:x:5:60:games:/usr/games:/usr/sbin/nologin
+  man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+  lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+  mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+  news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+  uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+  proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+  www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+  backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+  list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+  irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+  _apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+  nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+  systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+  tss:x:100:107:TPM software stack,,,:/var/lib/tpm:/bin/false
+  systemd-timesync:x:997:997:systemd Time Synchronization:/:/usr/sbin/nologin
+  messagebus:x:101:108::/nonexistent:/usr/sbin/nologin
+  avahi-autoipd:x:102:111:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+  usbmux:x:103:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+  sshd:x:104:65534::/run/sshd:/usr/sbin/nologin
+  dnsmasq:x:105:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+  avahi:x:106:113:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+  speech-dispatcher:x:107:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+  fwupd-refresh:x:108:116:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+  saned:x:109:118::/var/lib/saned:/usr/sbin/nologin
+  geoclue:x:110:119::/var/lib/geoclue:/usr/sbin/nologin
+  polkitd:x:996:996:polkit:/nonexistent:/usr/sbin/nologin
+  rtkit:x:111:120:RealtimeKit,,,:/proc:/usr/sbin/nologin
+  colord:x:112:121:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+  gnome-initial-setup:x:113:65534::/run/gnome-initial-setup/:/bin/false
+  Debian-gdm:x:114:122:Gnome Display Manager:/var/lib/gdm3:/bin/false
+  julio:x:1000:1000:julio,,,:/home/julio:/bin/bash
+  julio@debian:~/informating$ ls /dev/null
+  /dev/null
+  con dev/null perdemos rastros seria el famoso 
+  ahugero negroooooooooooooooooooooooo  2>/dev/nul
+    
+  julio@debian:~/informating$ cat documento50 2>/dev/null 
+  julio@debian:~/informating$ 
+
+
+---------  las tuberias---
+
+  julio@debian:~/informating$ cat doc.txt 
+  esto es una prueba
+  aqui hay menos pruebas
+  este dia pense
+  julio@debian:~/informating$ cat doc.txt  > doc2.txt
+
+  julio@debian:~/informating$  tr a p < doc2.txt
+ 
+  esto es unp pruebp
+  pqui hpy menos pruebps
+  este dip pense
+ 
+
+  llegamos a 1 momento que se hace tedioso tarbajar asi
+
+  julio@debian:~/informating$ tr a p < doc2.txt > doc3.txt
+
+  julio@debian:~/informating$ cat doc3.txt 
+  esto es unp pruebp
+  pqui hpy menos pruebps
+  este dip pense
+
+   ahora implemetamos las tuberias   
+  asme una cosa y luego otra 
+  julio@debian:~/informating$ cat doc2.txt | tr a p 
+  esto es unp pruebp
+  pqui hpy menos pruebps
+  este dip pense
+
+  julio@debian:~/informating$ cat doc2.txt | wc  -l  
+  3
+  julio@debian:~/informating$ cat doc2.txt | tr a m | wc  -l   
+  3
+  julio@debian:~/informating$ 
+
+
+   
+   otros ejemplos 
+
+  1)
+    ls -l | grep doc     
+  
+  2)
+    cat libro | grep love | more
+  
+
+  3)
+    ./miscript |& grep alerta 
+  
+
+   4)
+  ls -l | tee listado.txt
+
+  Y lo puedes hacer usando find para localizarlos, enviar la salida a través
+   la entrada de xargs y éste a su vez le irá entregando a rm los nombres como 
+   argumentos. Por tanto, se borrarán todos los localizados automáticamente:
+  
+
+    find ./ -name "thumbs.db" | xargs rm
+
+                       ---------------  filtros..................
+
+    wc    =  cuenta caracteres lineas 
+ 
+   grep  =  buscar texto 
+
+   sort =  nos permite ordena r contenidos
+   
+   diff   = nos muestras las diferencias
+   
+   cut  = mos permite cortar trozos de ficheros etc 
+  
+
+   son todos filtros no funcionan solo esperan una orden 
+     
+  con uniq podemos filtrar tambien 
+
+
+  julio@debian:~/informating$ cat nombres.txt 
+  julio
+  julio 
+  jose
+  jose
+  martha 
+  juan
+  thomas
+  thomas
+  thomas
+  ana 
+  julio@debian:~/informating$ cat nombres.txt | uniq
+  julio
+  julio 
+  jose
+  martha 
+  juan
+  thomas
+  ana
+  julio@debian:~/informating$ cat nombres.txt | uniq d
+  uniq: d: No existe el fichero o el directorio
+  julio@debian:~/informating$ cat nombres.txt | uniq -d
+  jose
+  thomas
+
